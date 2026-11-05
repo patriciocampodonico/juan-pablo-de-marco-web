@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Juan Pablo De Marco — Periodista tecnológico</title>
+<meta name="description" content="Periodista tecnológico, creador de contenido, conferencista y formador en inteligencia artificial.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fbfaf7; --surface:#ffffff; --soft:#f1efe9; --ink:#15181d; --muted:#5b616b;
+  --line:#e3e0d8; --accent:#1f44c4; --accent-ink:#ffffff; --accent-soft:#e8edfb;
+  --pending:#eceae4; --pending-ink:#8a8d93;
+  --serif:"Plus Jakarta Sans", "Inter", system-ui, sans-serif; --sans:"Inter", system-ui, -apple-system, Segoe UI, sans-serif;
+  --wrap:1160px; --r:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.12;letter-spacing:-.025em}
+h1{font-size:clamp(2.4rem,5.2vw,4rem)}
+h2{font-size:clamp(1.9rem,3.6vw,2.7rem);margin-bottom:.5em}
+h3{font-size:1.4rem;margin-bottom:.4em}
+p+p{margin-top:1em}
+.eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.lead{font-size:1.15rem;color:var(--muted);max-width:62ch}
+.muted{color:var(--muted)}
+section{padding:96px 0}
+.page{border-top:1px solid var(--line)}
+.alt{background:var(--soft)}
+
+/* botones */
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 .95rem var(--sans);padding:13px 22px;border-radius:999px;text-decoration:none;border:1.5px solid var(--accent);background:var(--accent);color:var(--accent-ink);transition:background .2s,color .2s}
+.btn:hover{background:#17349a;border-color:#17349a}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn.ghost:hover{background:var(--accent-soft)}
+.link{font-weight:600;color:var(--accent);text-decoration:none}
+.link::after{content:" →"}
+.link:hover{text-decoration:underline}
+
+/* header */
+header{position:sticky;top:0;z-index:20;background:rgba(251,250,247,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{font-family:var(--serif);font-weight:600;font-size:1.2rem;text-decoration:none}
+.menu{display:flex;gap:24px;list-style:none;font-size:.9rem;font-weight:500;white-space:nowrap}
+.menu a{text-decoration:none;color:var(--muted)}
+.menu a:hover{color:var(--ink)}
+.menu .cta a{color:var(--accent)}
+.burger{display:none;background:none;border:0;width:42px;height:42px;cursor:pointer}
+.burger span{display:block;height:2px;background:var(--ink);margin:6px 9px;border-radius:2px}
+
+/* pendiente */
+.pend{background:repeating-linear-gradient(135deg,var(--pending),var(--pending) 12px,#e5e3dc 12px,#e5e3dc 24px);color:var(--pending-ink);display:flex;align-items:center;justify-content:center;text-align:center;font-size:.8rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border-radius:var(--r);padding:16px}
+.tag-pend{display:inline-block;font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:#fff3cd;color:#7a5b00;padding:2px 8px;border-radius:6px;vertical-align:middle}
+
+/* hero */
+.hero{background:var(--ink);color:#fff;padding:0;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;right:-10%;top:-20%;width:70%;height:140%;background:radial-gradient(closest-side,rgba(31,68,196,.45),rgba(31,68,196,0));pointer-events:none}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:24px;align-items:end}
+.hero-text{padding:88px 0 80px}
+.hero .eyebrow{color:#9fb3ff}
+.hero h1{margin-bottom:20px;color:#fff;white-space:nowrap}
+.hero .roles{font-size:1.25rem;color:#fff;font-weight:500;margin-bottom:16px;max-width:36ch}
+.hero .lead{color:#b9bec7;max-width:46ch}
+.hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.hero .btn.ghost{color:#fff;border-color:rgba(255,255,255,.55)}
+.hero .btn.ghost:hover{background:rgba(255,255,255,.08)}
+.cutout{align-self:end;display:flex;justify-content:center}
+.cutout img{width:100%;max-width:440px;height:auto;display:block;-webkit-mask-image:linear-gradient(to bottom,#000 62%,transparent 94%);mask-image:linear-gradient(to bottom,#000 62%,transparent 94%);margin-bottom:-2px}
+.hero-logos{position:relative;border-top:1px solid rgba(255,255,255,.12);background:#1b1f26;padding:26px 0}
+.hero-logos .wrap{display:flex;align-items:center;gap:36px}
+.hero-logos .eyebrow{color:#8a909b;margin:0;white-space:nowrap}
+.strip{display:flex;flex-wrap:wrap;justify-content:space-between;gap:22px 28px;align-items:center;flex:1}
+.strip img{height:30px;max-width:130px;width:auto;object-fit:contain;filter:grayscale(1) brightness(1.6);opacity:.7}
+.strip img.w{filter:brightness(0) invert(1);opacity:.7}
+.strip img.seal{max-height:46px}
+
+.emb{display:flex;align-items:center;gap:7px;font:600 .74rem/1.1 var(--sans);color:#4a4f57;text-align:left;white-space:nowrap}
+.emb img{height:30px;width:30px;max-height:none;flex:none}
+.emb small{display:block;font-weight:500;font-size:.66rem;color:#6b7079;margin-top:2px}
+.logo:has(.emb){padding:12px}
+.strip .emb{color:#d7dae0}
+.strip .emb small{color:#9aa0aa}
+
+/* accesos */
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:28px;display:flex;flex-direction:column;gap:10px}
+.card p{color:var(--muted);flex:1}
+.card .num{font-family:var(--serif);font-size:.95rem;color:var(--accent)}
+
+/* logos */
+.logos{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;align-items:stretch}
+.logo{background:var(--surface);border:1px solid var(--line);border-radius:12px;height:88px;display:flex;align-items:center;justify-content:center;padding:18px 20px}
+.logo img{max-height:40px;width:auto;object-fit:contain;filter:grayscale(1);opacity:.8}
+.logo.txt{flex-direction:column;gap:4px;font-weight:600;font-size:.88rem;color:#3a3f47;text-align:center;line-height:1.25}
+.logo.txt small{font-size:.62rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--pending-ink)}
+.logos.five{grid-template-columns:repeat(5,1fr)}
+.logos.four{grid-template-columns:repeat(4,1fr)}
+.logos.three{grid-template-columns:repeat(3,1fr)}
+
+/* banda curso */
+.course-band{background:var(--ink);color:#fff;border-radius:22px;padding:44px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}
+.course-band{position:relative;overflow:hidden;isolation:isolate}
+.course-band > :not(.waves){position:relative;z-index:1}
+.waves{position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(120% 90% at 85% 120%,#14225a 0%,rgba(20,34,90,0) 60%)}
+.waves svg{position:absolute;left:0;bottom:-40px;width:200%;height:calc(100% + 40px);animation:wave 8s linear infinite;filter:blur(18px)}
+.waves .w2{animation-duration:11s;animation-direction:reverse;height:calc(85% + 40px);filter:blur(14px)}
+.waves .w3{animation-duration:15s;height:calc(65% + 40px);filter:blur(12px)}
+@keyframes wave{0%{transform:translate(0,0)}25%{transform:translate(-12.5%,-14px)}50%{transform:translate(-25%,0)}75%{transform:translate(-37.5%,14px)}100%{transform:translate(-50%,0)}}
+@media (prefers-reduced-motion:reduce){.waves svg{animation:none}}
+.course-band .eyebrow{color:#9fb3ff}
+.course-band p{color:#c9ccd2}
+.course-band .btn{background:#fff;color:var(--ink);border-color:#fff}
+
+/* split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.split.rev > :first-child{order:2}
+.photo{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;background:var(--soft)}
+.photo img{width:100%;height:100%;object-fit:cover}
+.photo.tall{aspect-ratio:4/5}
+.photo.pend{background:repeating-linear-gradient(135deg,var(--pending),var(--pending) 12px,#e5e3dc 12px,#e5e3dc 24px)}
+.logo img.inv{filter:brightness(0);opacity:.6}
+.logo img.seal{max-height:58px}
+.logo img.big{max-height:54px}
+
+/* cronologia */
+.timeline{list-style:none;border-left:2px solid var(--line);margin-top:28px}
+.timeline li{position:relative;padding:0 0 22px 26px}
+.timeline li::before{content:"";position:absolute;left:-7px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--accent)}
+.timeline b{font-family:var(--serif);font-size:1.1rem;display:block}
+.timeline span{color:var(--muted);font-size:.95rem}
+.timeline em{display:block;font-style:normal;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:2px}
+.timeline .tag-pend,.tl-note .tag-pend{font-style:normal;color:#7a5b00;font-size:.66rem;letter-spacing:.05em}
+.tl-note{font-size:.88rem;color:var(--muted);margin-top:4px}
+#sobre-mi .split{align-items:start}
+@media (min-width:821px){#sobre-mi .split .photo{position:sticky;top:100px}}
+
+
+/* articulos / galeria */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.item{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.item .pend{border-radius:0;aspect-ratio:16/10}
+.item .body{padding:20px 22px 24px;display:flex;flex-direction:column;gap:6px;flex:1}
+.item .meta{font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.item .body p{color:var(--muted);font-size:.95rem;flex:1}
+
+/* servicios */
+.checks{list-style:none;display:grid;gap:12px;margin-top:22px}
+.checks li{padding-left:30px;position:relative}
+.checks li::before{content:"";position:absolute;left:0;top:.55em;width:16px;height:2px;background:var(--accent)}
+
+.cta-box{margin-top:56px;background:var(--accent-soft);border-radius:var(--r);padding:30px 34px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.cta-box p{font-size:1.08rem;max-width:58ch}
+.cta-box p b{font-family:var(--serif);font-size:1.25rem;display:block;margin-bottom:2px}
+
+/* subnav conferencias */
+.subnav{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.subnav a{font-size:.88rem;font-weight:500;text-decoration:none;padding:8px 16px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+.subnav a:hover{border-color:var(--accent);color:var(--accent)}
+.sub{padding:72px 0;border-top:1px solid var(--line)}
+.sub:first-of-type{border-top:0}
+
+/* metodologia */
+.method{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+.step{border-top:3px solid var(--accent);background:var(--surface);border-radius:0 0 var(--r) var(--r);padding:22px}
+.step b{font-family:var(--serif);font-size:1.3rem;display:block;margin-bottom:6px}
+.step p{color:var(--muted);font-size:.95rem}
+
+/* testimonios */
+.quotes{display:grid;grid-template-columns:1fr 1.4fr;gap:22px;margin-top:36px}
+blockquote{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:28px}
+blockquote p{font-family:var(--serif);font-weight:500;font-size:1.1rem;line-height:1.55;letter-spacing:-.01em}
+blockquote footer{margin-top:16px;font-size:.9rem;color:var(--muted)}
+blockquote footer b{color:var(--ink)}
+
+.item .thumb{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;background:var(--line)}
+.item .thumb.tall{object-position:center 22%}
+.quotes.one{grid-template-columns:minmax(0,760px)}
+.logos.ev{grid-template-columns:repeat(2,1fr);margin-top:24px}
+.logo.cap{flex-direction:column;gap:8px;height:auto;min-height:88px;padding:14px 16px}
+.logo.cap>small{font-size:.72rem;font-weight:600;color:var(--muted);text-align:center;line-height:1.2}
+.logo.cap img{max-height:34px}
+.events{list-style:none;display:grid;gap:10px;margin-top:22px}
+.events li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 18px;font-weight:500}
+
+/* curso */
+.course-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.includes{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:44px}
+.include{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:26px}
+.include b{font-family:var(--serif);font-size:1.2rem;display:block;margin-bottom:6px}
+.include p{color:var(--muted);font-size:.96rem}
+.notonly{margin-top:44px;border-left:3px solid var(--accent);padding:6px 0 6px 26px;max-width:70ch}
+.notonly h3{margin-bottom:8px}
+/* seccion curso oscura */
+.dark{background:var(--ink);color:#fff;position:relative;overflow:hidden;isolation:isolate;border-top:0}
+.dark > .wrap{position:relative;z-index:1}
+.dark .eyebrow{color:#9fb3ff}
+.dark .muted,.dark .lead{color:#b9bec7}
+.dark .lead.strong{color:#fff;font-weight:500}
+.dark .btn{background:#fff;color:var(--ink);border-color:#fff}
+.dark .btn:hover{background:#e6e9f2;border-color:#e6e9f2}
+.dark .include{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.1);backdrop-filter:blur(6px)}
+.dark .include p{color:#b9bec7}
+.dark .notonly{border-left-color:#6f8cff}
+.dark .photo{box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.dark .waves svg{height:calc(70% + 40px);animation-duration:12s}
+.dark .waves .w2{animation-duration:16s}
+.dark .waves .w3{animation-duration:22s}
+.dark .waves .w2{height:calc(55% + 40px)}
+.dark .waves .w3{height:calc(40% + 40px)}
+
+
+/* contacto */
+.contact-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:56px;margin-top:36px}
+form{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:32px;display:grid;gap:18px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+label{display:grid;gap:6px;font-size:.88rem;font-weight:600}
+label small{font-weight:400;color:var(--muted)}
+input,select,textarea{font:inherit;font-size:1rem;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:transparent}
+textarea{min-height:130px;resize:vertical}
+.form-ok{display:none;color:#116b3a;font-weight:600}
+.channels{list-style:none;display:grid;gap:10px;align-content:start}
+.channels a,.channels span{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 18px;background:var(--surface);border:1px solid var(--line);border-radius:12px;text-decoration:none;font-weight:600}
+.channels a:hover{border-color:var(--accent)}
+.channels em{font-style:normal;font-weight:400;color:var(--muted);font-size:.88rem}
+
+footer.site{border-top:1px solid var(--line);padding:36px 0;font-size:.9rem;color:var(--muted)}
+footer.site .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* responsive */
+@media (max-width:1120px){
+  .menu{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 24px 16px}
+  .menu.open{display:flex}
+  .menu li a{display:block;padding:12px 0;border-bottom:1px solid var(--line);font-size:1rem}
+  .burger{display:block}
+  .logos{grid-template-columns:repeat(3,1fr)}
+  .logos.five,.logos.four{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:820px){
+  section{padding:64px 0}
+  .hero-grid{gap:0;position:relative}
+  .hero h1{white-space:normal}
+  .hero::before{display:none}
+  .hero-logos{z-index:4}
+  .hero-text{padding:36px 0 0}
+  .hero-text > *{position:relative;z-index:2}
+  .hero .lead{display:none}
+  .hero .roles{margin-bottom:0;font-size:1.12rem}
+  .cutout{position:relative;margin-top:-34px;z-index:1}
+  .cutout::before{content:"";position:absolute;left:50%;top:44%;width:150%;aspect-ratio:1;transform:translate(-50%,-50%);background:radial-gradient(closest-side,rgba(31,68,196,.55),rgba(31,68,196,.18) 55%,rgba(31,68,196,0));pointer-events:none}
+  .cutout img{position:relative;max-width:360px;-webkit-mask-image:linear-gradient(to bottom,#000 55%,transparent 92%);mask-image:linear-gradient(to bottom,#000 55%,transparent 92%)}
+  .hero .actions{position:absolute;left:0;right:0;bottom:22px;margin:0;justify-content:center;gap:8px;flex-wrap:nowrap;z-index:3}
+  .hero .actions .btn{padding:11px 13px;font-size:.82rem}
+  .hero .btn.ghost{background:rgba(21,24,29,.55);backdrop-filter:blur(6px)}
+  .hero-logos .wrap{flex-direction:column;align-items:flex-start;gap:18px}
+  .strip{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));justify-items:center;gap:22px 20px;width:100%}
+  .hero-grid,.split,.course-hero,.contact-grid,.quotes{grid-template-columns:1fr;gap:36px}
+  .split.rev > :first-child{order:0}
+  .cards3,.grid3,.method{grid-template-columns:1fr}
+  .includes,.row2{grid-template-columns:1fr}
+  .course-band{grid-template-columns:1fr;padding:32px 26px}
+  .sub{padding:56px 0}
+}
+@media (max-width:480px){
+  .wrap{padding:0 16px}
+  .logos,.logos.three{grid-template-columns:repeat(2,1fr)}
+  form{padding:22px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#inicio">Juan Pablo De Marco</a>
+    <button class="burger" aria-label="Abrir menú" aria-expanded="false" onclick="toggleMenu(this)"><span></span><span></span><span></span></button>
+    <ul class="menu" id="menu">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#creador">Creador de contenido</a></li>
+      <li><a href="#conferencias">Conferencias y formación en IA</a></li>
+      <li><a href="#curso">Tu primer agente de IA</a></li>
+      <li class="cta"><a href="#contacto">Contacto</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+
+<!-- 1. INICIO -->
+<section class="hero" id="inicio">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <p class="eyebrow">Periodista desde 2011 · Tecnología desde 2013</p>
+      <h1>Juan Pablo De Marco</h1>
+      <p class="roles">Periodista tecnológico, creador de contenido, conferencista y formador en inteligencia artificial.</p>
+      <p class="lead">Hoy cubro tecnología, innovación e inteligencia artificial en El Observador.</p>
+      <div class="actions">
+        <a class="btn" href="#contacto">Trabajemos juntos</a>
+        <a class="btn ghost" href="#curso">Tu primer agente de IA</a>
+      </div>
+    </div>
+    <div class="cutout"><img src="img/Foto-banner-JP.png" alt="Juan Pablo De Marco"></div>
+  </div>
+  <div class="hero-logos">
+    <div class="wrap">
+      <p class="eyebrow">Trabajé con</p>
+      <div class="strip">
+        <img src="img/logos/elobservador.svg" alt="El Observador" class="w">
+        <img src="img/Samsung_Logo-2048x680.png" alt="Samsung">
+        <img src="img/Xiaomi_logo-2048x564.png" alt="Xiaomi">
+        <img src="img/logos/mercadolibre.svg" alt="Mercado Libre" class="w">
+        <img src="img/Tiendamia_logo.png" alt="Tiendamia" class="w">
+        <img src="img/logos/mosca.svg" alt="Mosca" class="w">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cards3">
+      <article class="card">
+        <span class="num">01</span>
+        <h3>Creador de contenido</h3>
+        <p>Videos, reels, campañas y coberturas para marcas.</p>
+        <a class="link" href="#creador">Ver mis trabajos</a>
+      </article>
+      <article class="card">
+        <span class="num">02</span>
+        <h3>Conferencias y eventos</h3>
+        <p>Charlas sobre tecnología e IA, conducción y moderación.</p>
+        <a class="link" href="#conferencias">Conocer mi experiencia</a>
+      </article>
+      <article class="card">
+        <span class="num">03</span>
+        <h3>Formación en IA</h3>
+        <p>Talleres, curso online y asesoramiento personalizado.</p>
+        <a class="link" href="#talleres">Conocer las propuestas</a>
+      </article>
+    </div>
+
+        <div class="course-band" style="margin-top:72px">
+      <div class="waves" aria-hidden="true"><svg class="w1" viewBox="0 0 2400 400" preserveAspectRatio="none"><path d="M0 170 C300 100 300 100 600 170 S900 240 1200 170 S1500 100 1800 170 S2100 240 2400 170 V400 H0 Z" fill="#1f44c4" fill-opacity=".3"/></svg><svg class="w2" viewBox="0 0 2400 400" preserveAspectRatio="none"><path d="M0 220 C300 165 300 165 600 220 S900 275 1200 220 S1500 165 1800 220 S2100 275 2400 220 V400 H0 Z" fill="#16255f" fill-opacity=".55"/></svg><svg class="w3" viewBox="0 0 2400 400" preserveAspectRatio="none"><path d="M0 280 C300 240 300 240 600 280 S900 320 1200 280 S1500 240 1800 280 S2100 320 2400 280 V400 H0 Z" fill="#0d1117" fill-opacity=".7"/></svg></div>
+            <div>
+        <p class="eyebrow">Curso online</p>
+        <h2 style="margin-bottom:.3em">Tu primer agente de IA</h2>
+        <p>De básico a avanzado, con tres meses de acompañamiento personalizado.</p>
+      </div>
+      <a class="btn" href="#curso">Conocé el curso</a>
+    </div>
+  </div>
+</section>
+
+<!-- 2. SOBRE MÍ -->
+<section class="page alt" id="sobre-mi">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">Sobre mí</p>
+      <h2>Periodista uruguayo especializado en tecnología</h2>
+      <p>Soy Juan Pablo De Marco, periodista uruguayo especializado en tecnología. Comencé mi carrera periodística en 2011 y desde 2013 me dedico especialmente a cubrir temas relacionados con tecnología, innovación y transformación digital.</p>
+      <p>Trabajé en El País y actualmente me desempeño como periodista especializado en tecnología en El Observador.</p>
+      <p>A lo largo de mi trayectoria entrevisté a referentes del sector tecnológico y cubrí temas vinculados a inteligencia artificial, ciberseguridad, innovación y el impacto de la tecnología en la sociedad.</p>
+      <p>Me interesa explicar temas complejos de manera sencilla y acercar la tecnología a públicos diversos. Esa misma mirada atraviesa mi trabajo como creador de contenido, conferencista y formador.</p>
+      <ul class="timeline">
+        <li><b>2011</b><span>Comienzo en el periodismo</span></li>
+        <li><b>2013</b><span>Especialización en tecnología</span></li>
+        <li><b>El País</b><span>Periodista</span></li>
+        <li><b>Hoy · El Observador</b><span>Periodista especializado en tecnología y autor de la columna Nueva Pestaña</span></li>
+      </ul>
+      <p class="eyebrow" style="margin-top:30px">Medios en los que trabajé</p>
+      <div class="logos three" style="margin-top:0;max-width:440px;grid-template-columns:repeat(2,1fr)">
+        <div class="logo"><img src="img/logos/elpais.svg" alt="El País" class="inv"></div>
+        <div class="logo"><img src="img/logos/elobservador.svg" alt="El Observador" class="inv"></div>
+      </div>
+    </div>
+    <div class="photo tall"><img src="img/Foto-JP-02.jpeg" alt="Juan Pablo De Marco probando lentes de realidad mixta" style="object-position:30% center"></div>
+  </div>
+  <div class="wrap" style="margin-top:72px">
+    <p class="eyebrow">Artículos y entrevistas destacados</p>
+    <div class="grid3">
+      <article class="item"><img class="thumb" src="img/notas/nota-nvidia.jpg" alt="Experto de Nvidia sosteniendo un chip" loading="lazy"><div class="body"><span class="meta">El Observador</span><h3>Experto de Nvidia: “Si no te gusta lo que hacés, usá la IA para dejar de hacer eso”</h3><p>Entrevista sobre cómo incorporar la inteligencia artificial al trabajo diario y perderle el miedo.</p><a class="link" href="https://www.elobservador.com.uy/experto-nvidia-el-observador-si-no-te-gusta-lo-que-haces-usa-la-ia-dejar-hacer-eso-n6062205" target="_blank" rel="noopener">Leer nota</a></div></article>
+      <article class="item"><img class="thumb" src="img/notas/nota-guardian.jpg" alt="Mujer hablando por teléfono con preocupación" loading="lazy"><div class="body"><span class="meta">El Observador</span><h3>Estudiantes uruguayos crean una app que avisa a un familiar si alguien está siendo estafado</h3><p>Guardián ganó entre más de 30 propuestas en Build101 y fue entrenada con modalidades de estafa conocidas en Uruguay.</p><a class="link" href="https://www.elobservador.com.uy/ciencia-y-tecnologia/estudiantes-uruguayos-crean-una-app-que-avisa-un-familiar-tiempo-real-si-la-victima-esta-siendo-estafada-n6061967" target="_blank" rel="noopener">Leer nota</a></div></article>
+      <article class="item"><img class="thumb" src="img/notas/nota-videojuegos.jpg" alt="Joven jugando un videojuego de fútbol en su computadora" loading="lazy"><div class="body"><span class="meta">El Observador</span><h3>Uruguayos crean videojuegos de fútbol “virales” con IA: ¿moda o pegada?</h3><p>La inteligencia artificial abarató y aceleró la creación de videojuegos, y el fútbol se volvió uno de sus temas favoritos.</p><a class="link" href="https://www.elobservador.com.uy/ciencia-y-tecnologia/uruguayos-crean-videojuegos-futbol-virales-ia-moda-o-pegada-n6060725" target="_blank" rel="noopener">Leer nota</a></div></article>
+    </div>
+    <p style="margin-top:26px"><a class="link" href="https://www.elobservador.com.uy/perfil/110-juan-pablo-marco" target="_blank" rel="noopener">Ver todas mis notas en El Observador</a></p>
+  </div>
+</section>
+
+<!-- 3. CREADOR DE CONTENIDO -->
+<section class="page" id="creador">
+  <div class="wrap split rev">
+    <div>
+      <p class="eyebrow">Creador de contenido</p>
+      <h2>Contenido para marcas y empresas</h2>
+      <p>Creo videos, reels, entrevistas y campañas para marcas y empresas, combinando mi experiencia periodística con los formatos y lenguajes de las plataformas digitales.</p>
+      <p>Desarrollo contenidos que buscan comunicar productos, servicios e ideas de una manera clara, cercana y atractiva para las audiencias.</p>
+      <ul class="checks">
+        <li>Reels y videos para redes sociales</li>
+        <li>Campañas y colaboraciones con marcas</li>
+        <li>Entrevistas y contenido audiovisual</li>
+        <li>Cobertura de eventos y lanzamientos</li>
+        <li>Contenido para los canales digitales de las empresas</li>
+      </ul>
+    </div>
+    <div class="pend photo tall">Foto creando contenido<br>pendiente</div>
+  </div>
+
+  <div class="wrap" style="margin-top:72px">
+    <p class="eyebrow">Marcas con las que trabajé</p>
+    <div class="logos five" style="grid-template-columns:repeat(auto-fill,minmax(160px,1fr))">
+      <div class="logo"><img src="img/Samsung_Logo-2048x680.png" alt="Samsung"></div>
+      <div class="logo"><img src="img/Xiaomi_logo-2048x564.png" alt="Xiaomi"></div>
+      <div class="logo"><img src="img/logos/mercadolibre.svg" alt="Mercado Libre"></div>
+      <div class="logo"><img src="img/logos/mosca.svg" alt="Mosca"></div>
+      <div class="logo"><img src="img/logos/covercompany.svg" alt="Cover Company" class="inv"></div>
+      <div class="logo"><img src="img/Tiendamia_logo.png" alt="Tiendamia" class="inv"></div>
+      <div class="logo"><img src="img/logos/nexchange.png" alt="Nexchange" class="inv"></div>
+      <div class="logo"><img src="img/logos/abitab-color.svg" alt="Abitab"></div>
+      <div class="logo"><img src="img/logos/puntatech.svg" alt="Punta Tech"></div>
+    </div>
+
+    <p class="eyebrow" style="margin-top:72px">Trabajos destacados</p>
+    <div class="grid3">
+      <article class="item"><img class="thumb tall" src="img/notas/ig-mercadolibre.jpg" alt="Charla en el escenario de Mercado Libre Experience" loading="lazy"><div class="body"><span class="meta">Mercado Libre</span><p>Cobertura de Mercado Libre Experience 2026: lo más relevante de sus 40 charlas, en un reel.</p><a class="link" href="https://www.instagram.com/juampa.demarco/reel/Dej4_gGRba4/" target="_blank" rel="noopener">Ver publicación</a></div></article>
+      <article class="item"><img class="thumb tall" src="img/notas/ig-tiendamia.jpg" alt="Juan Pablo De Marco presentando cupones de Tiendamia" loading="lazy"><div class="body"><span class="meta">Tiendamia</span><p>Colaboración con cupones de descuento para comprar en Amazon, eBay y Walmart con precio final.</p><a class="link" href="https://www.instagram.com/juampa.demarco/reel/DGlJ2q-RYca/" target="_blank" rel="noopener">Ver publicación</a></div></article>
+      <article class="item"><div class="pend">Miniatura del video</div><div class="body"><span class="meta">Samsung</span><p>Breve descripción del trabajo. <span class="tag-pend">link pendiente</span></p><a class="link" href="#">Ver publicación</a></div></article>
+    </div>
+
+    <div class="cta-box">
+      <p><b>¿Querés que trabajemos juntos?</b>Contactame para conversar sobre tu próxima campaña o proyecto de contenido.</p>
+      <a class="btn" href="#contacto" data-servicio="Creación de contenido">Contactame</a>
+    </div>
+  </div>
+</section>
+
+<!-- 4. CONFERENCIAS Y FORMACIÓN -->
+<section class="page alt" id="conferencias" style="padding-bottom:24px">
+  <div class="wrap">
+    <p class="eyebrow">Conferencias y formación</p>
+    <h2>Conferencias y formación en inteligencia artificial</h2>
+    <nav class="subnav" aria-label="Secciones">
+      <a href="#charlas">Conferencias</a>
+      <a href="#talleres">Cursos y talleres</a>
+      <a href="#mayores">Talleres +60</a>
+      <a href="#conduccion">Conducción</a>
+      <a href="#moderacion">Moderación</a>
+      <a href="#asesoramiento">Asesoramiento</a>
+    </nav>
+  </div>
+</section>
+
+<div class="alt">
+  <!-- 4.1 -->
+  <div class="sub" id="charlas">
+    <div class="wrap split">
+      <div>
+        <h3 style="font-size:1.9rem">Conferencias sobre IA y tecnología</h3>
+        <p>Doy conferencias sobre inteligencia artificial, innovación y nuevas tecnologías, con especial atención a cómo estos cambios impactan en las personas, las empresas y el mundo del trabajo.</p>
+        <p>Mis presentaciones combinan actualidad, ejemplos concretos y demostraciones para acercar temas tecnológicos a públicos diversos.</p>
+      </div>
+      <div class="photo tall" style="max-width:440px;justify-self:end;width:100%"><img src="img/Foto-JP-03-scaled.jpg" alt="Juan Pablo De Marco dando una conferencia" style="object-position:96% center"></div>
+    </div>
+    <div class="wrap" style="margin-top:44px">
+      <p class="eyebrow">Charlas y talleres para</p>
+      <div class="logos" style="grid-template-columns:repeat(auto-fill,minmax(160px,1fr))">
+        <div class="logo"><img src="img/logos/salus.svg" alt="Salus" class="big"></div>
+        <div class="logo"><img src="img/logos/berkes.svg" alt="Berkes" class="inv"></div>
+        <div class="logo"><span class="emb" role="img" aria-label="Embajada de Estados Unidos en Montevideo"><img src="img/logos/embajada.png" alt=""><span>Embajada EE.&nbsp;UU.<small>Montevideo</small></span></span></div>
+        <div class="logo"><img src="img/logos/campusparty-color.png" alt="Campus Party"></div>
+        <div class="logo"><img src="img/BSG_Logo.png" alt="Blockchain Summit Global" class="inv"></div>
+        <div class="logo txt">Lincoln’s Corporate Gifting<small>logo pendiente</small></div>
+        <div class="logo"><img src="img/logos/aje.png" alt="Asociación de Jóvenes Empresarios (AJE)" class="big"></div>
+        <div class="logo txt">Cámara de Comercio y Servicios del Uruguay<small>logo pendiente</small></div>
+        <div class="logo"><img src="img/logos/vistage.svg" alt="Vistage" class="inv"></div>
+        <div class="logo txt">Rivero Quirino<small>logo pendiente</small></div>
+        <div class="logo"><img src="img/logos/sabre.png" alt="Sabre" class="inv"></div>
+      </div>
+      <div class="quotes one">
+        <blockquote><p>“La participación de Juan Pablo, estrenando su primera conferencia en nuestro Blockchain Summit Global, fue del alto nivel que todos esperábamos! […] La sala repleta y los comentarios luego, confirman su gran convocatoria y su condición de crack.”</p><footer><b>Marcelo Montoro</b> · Coorganizador de la Blockchain Summit Global</footer></blockquote>
+      </div>
+      <div class="cta-box">
+        <p><b>¿Querés organizar una conferencia?</b>Contactame para conversar sobre la temática, el público y las características del evento.</p>
+        <a class="btn" href="#contacto" data-servicio="Conferencia">Contactame</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4.2 -->
+  <div class="sub" id="talleres">
+    <div class="wrap split rev">
+      <div>
+        <h3 style="font-size:1.9rem">Cursos y talleres de inteligencia artificial</h3>
+        <p>Ofrezco talleres prácticos de inteligencia artificial para empresas, instituciones y grupos que quieren aprender a utilizar estas herramientas. Las capacitaciones se adaptan a los conocimientos y necesidades de los participantes.</p>
+        <p><b>Mi metodología: Hablar, Personalizar y Delegar.</b></p>
+      </div>
+      <div class="photo"><img src="img/Capacitaciones.jpg" alt="Juan Pablo De Marco en un taller" style="object-position:center 30%"></div>
+    </div>
+    <div class="wrap">
+      <div class="method">
+        <div class="step"><b>Hablar</b><p>Aprender a comunicarse con la inteligencia artificial y obtener mejores resultados.</p></div>
+        <div class="step"><b>Personalizar</b><p>Adaptar las herramientas a las necesidades de cada persona y su forma de trabajar.</p></div>
+        <div class="step"><b>Delegar</b><p>Descubrir cómo utilizar la inteligencia artificial para realizar tareas y simplificar procesos.</p></div>
+      </div>
+      <p class="muted" style="margin-top:20px">Esta metodología permite avanzar progresivamente desde los primeros pasos hasta usos más avanzados de la IA.</p>
+      <div class="quotes one">
+        <blockquote><p>“Se disfruta mucho la forma en que compartes tus conocimientos.”</p><footer><b>Carol P.</b> · Docente universitaria</footer></blockquote>
+      </div>
+      <div class="cta-box">
+        <p><b>¿Querés organizar un taller para tu empresa o institución?</b>Contactame para diseñar una capacitación adaptada a tu público.</p>
+        <a class="btn" href="#contacto" data-servicio="Taller para empresas">Contactame</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4.3 -->
+  <div class="sub" id="mayores">
+    <div class="wrap split">
+      <div>
+        <h3 style="font-size:1.9rem">Talleres de IA para mayores de 60 años</h3>
+        <p>Las personas mayores de 60 años son un público que me interesa especialmente y con el que ya tengo experiencia impartiendo talleres.</p>
+        <p>Creo que la inteligencia artificial puede ofrecer nuevas oportunidades para aprender, comunicarse, resolver situaciones cotidianas y desarrollar intereses personales.</p>
+        <p>Por eso, realizo talleres especialmente pensados para este público, con explicaciones paso a paso, ejemplos cercanos y espacio para realizar preguntas.</p>
+        <p>Mi objetivo es acercar estas herramientas de una manera accesible y demostrar que la inteligencia artificial también puede ser útil para las personas mayores.</p>
+      </div>
+      <div class="pend photo">Foto de taller con mayores de 60<br>pendiente (con permisos)</div>
+    </div>
+    <div class="wrap">
+      <div class="cta-box">
+        <p><b>¿Querés organizar un taller para mayores de 60 años?</b>Contactame para conocer las posibilidades de capacitación.</p>
+        <a class="btn" href="#contacto" data-servicio="Taller para mayores de 60">Contactame</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4.4 -->
+  <div class="sub" id="conduccion">
+    <div class="wrap split rev">
+      <div>
+        <h3 style="font-size:1.9rem">Conducción de eventos</h3>
+        <p>Participo como conductor de eventos corporativos, encuentros empresariales y actividades vinculadas a tecnología, innovación y otros temas de actualidad.</p>
+        <p>Mi experiencia periodística me permite presentar contenidos, conducir entrevistas y acompañar el desarrollo de eventos con un enfoque profesional y dinámico.</p>
+        <div class="logos ev">
+          <div class="logo cap"><img src="img/logos/anda.svg" alt="ANDA" class="inv"><small>Ciclos con Valor</small></div>
+          <div class="logo cap"><span class="emb" role="img" aria-label="Embajada de Estados Unidos en Montevideo"><img src="img/logos/embajada.png" alt=""><span>Embajada EE.&nbsp;UU.<small>Montevideo</small></span></span><small>AI Summit</small></div>
+          <div class="logo txt">AT Innovando Juntos<small>logo pendiente</small></div>
+        </div>
+      </div>
+      <div class="pend photo">Foto conduciendo un evento<br>pendiente</div>
+    </div>
+    <div class="wrap">
+      <div class="cta-box">
+        <p><b>¿Buscás un conductor para tu evento?</b>Contactame para conversar sobre la propuesta.</p>
+        <a class="btn" href="#contacto" data-servicio="Conducción de eventos">Contactame</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4.5 -->
+  <div class="sub" id="moderacion">
+    <div class="wrap split">
+      <div>
+        <h3 style="font-size:1.9rem">Moderación de eventos</h3>
+        <p>Modero paneles, entrevistas y conversaciones en vivo, aportando mi experiencia periodística para facilitar el intercambio entre especialistas, empresarios y referentes de diferentes sectores.</p>
+        <div class="logos ev">
+          <div class="logo txt">Fintech Summit<small>logo pendiente</small></div>
+          <div class="logo txt">Finanzas Summit<small>logo pendiente</small></div>
+          <div class="logo cap"><img src="img/logos/fenicio.svg" alt="Fenicio" class="inv"><small>Fenicio Talks AI Summit</small></div>
+          <div class="logo txt">Blockchain Summit Uruguay<small>logo pendiente</small></div>
+        </div>
+      </div>
+      <div class="photo"><img src="img/Moderador.png" alt="Juan Pablo De Marco moderando en un escenario" style="object-position:70% center"></div>
+    </div>
+    <div class="wrap">
+      <div class="cta-box">
+        <p><b>¿Necesitás un moderador para tu evento?</b>Contactame para conversar sobre la temática y los participantes.</p>
+        <a class="btn" href="#contacto" data-servicio="Moderación de eventos">Contactame</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4.6 -->
+  <div class="sub" id="asesoramiento" style="padding-bottom:96px">
+    <div class="wrap" style="max-width:860px">
+      <h3 style="font-size:1.9rem">Asesoramiento personalizado en IA</h3>
+      <p>Ofrezco asesoramiento para personas, profesionales y empresas que quieren comenzar a utilizar inteligencia artificial o aprovechar mejor las herramientas que ya conocen.</p>
+      <p>Trabajamos sobre necesidades concretas para identificar aplicaciones útiles, mejorar procesos y explorar nuevas formas de trabajar con IA.</p>
+      <p>El asesoramiento puede incluir aprendizaje de herramientas, personalización de asistentes y orientación para crear agentes de inteligencia artificial.</p>
+      <div class="cta-box">
+        <p><b>¿Querés recibir asesoramiento personalizado?</b>Contactame y contame qué necesitás.</p>
+        <a class="btn" href="#contacto" data-servicio="Asesoramiento personalizado">Contactame</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 5. CURSO -->
+<section class="page dark" id="curso">
+  <div class="waves" aria-hidden="true"><svg class="w1" viewBox="0 0 2400 400" preserveAspectRatio="none"><path d="M0 170 C300 100 300 100 600 170 S900 240 1200 170 S1500 100 1800 170 S2100 240 2400 170 V400 H0 Z" fill="#1f44c4" fill-opacity=".3"/></svg><svg class="w2" viewBox="0 0 2400 400" preserveAspectRatio="none"><path d="M0 220 C300 165 300 165 600 220 S900 275 1200 220 S1500 165 1800 220 S2100 275 2400 220 V400 H0 Z" fill="#16255f" fill-opacity=".55"/></svg><svg class="w3" viewBox="0 0 2400 400" preserveAspectRatio="none"><path d="M0 280 C300 240 300 240 600 280 S900 320 1200 280 S1500 240 1800 280 S2100 320 2400 280 V400 H0 Z" fill="#0d1117" fill-opacity=".7"/></svg></div>
+  <div class="wrap">
+    <div class="course-hero">
+      <div>
+        <p class="eyebrow">Curso online</p>
+        <h2>Tu primer agente de IA</h2>
+        <p class="lead strong">Aprendé inteligencia artificial de básico a avanzado, con tres meses de acompañamiento personalizado.</p>
+        <p class="muted" style="margin-top:16px">Tu primer agente de IA es un curso online pensado para quienes quieren aprender a utilizar inteligencia artificial desde cero y avanzar hacia herramientas y funcionalidades más complejas. No necesitás conocimientos previos ni saber programar.</p>
+        <div style="margin-top:28px;display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+          <a class="btn" href="#" title="Enlace a la página de contratación pendiente">Conocé Tu primer agente de IA</a>
+          <span class="tag-pend">link de contratación pendiente</span>
+        </div>
+      </div>
+      <div class="photo"><img src="img/Cursos-IA.jpg" alt="Clase del curso en una laptop" style="object-position:center 40%"></div>
+    </div>
+
+    <div class="includes">
+      <div class="include"><b>Más de tres horas de contenido pregrabado</b><p>Clases en video para mirar a tu ritmo, cuando quieras y desde donde quieras.</p></div>
+      <div class="include"><b>Tres meses de acompañamiento personalizado</b><p>Te acompaño durante el proceso de aprendizaje para ayudarte a avanzar y aplicar lo aprendido.</p></div>
+      <div class="include"><b>Consultas ilimitadas por WhatsApp</b><p>Durante tres meses podés escribirme para realizar todas las consultas que necesites, resolver dudas y recibir orientación personalizada.</p></div>
+      <div class="include"><b>Formación de básico a avanzado</b><p>Un recorrido progresivo para utilizar herramientas de IA y avanzar hacia la creación de tu primer agente.</p></div>
+    </div>
+
+    <div class="notonly">
+      <h3>No es solamente un curso grabado</h3>
+      <p class="muted">Además de acceder al contenido, contás conmigo durante tres meses para acompañarte en el aprendizaje. La idea es que no te quedes solamente con la teoría, sino que puedas incorporar estas herramientas a tu vida cotidiana y profesional.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. CONTACTO -->
+<section class="page alt" id="contacto">
+  <div class="wrap">
+    <p class="eyebrow">Contacto</p>
+    <h2>¿Trabajamos juntos?</h2>
+    <p class="lead">¿Querés crear contenido para tu marca, organizar una conferencia, capacitar a tu equipo o aprender a utilizar inteligencia artificial? Contactame y conversemos sobre tu propuesta.</p>
+
+    <div class="contact-grid">
+      <form id="form" onsubmit="return enviar(event)">
+        <div class="row2">
+          <label>Nombre y apellido<input name="nombre" required autocomplete="name"></label>
+          <label>Correo electrónico<input name="email" type="email" required autocomplete="email"></label>
+        </div>
+        <label><span>Empresa u organización <small>(opcional)</small></span><input name="empresa" autocomplete="organization"></label>
+        <label>Servicio de interés
+          <select name="servicio" id="servicio" required>
+            <option value="">Elegí una opción</option>
+            <option>Creación de contenido</option>
+            <option>Conferencia</option>
+            <option>Taller para empresas</option>
+            <option>Taller para mayores de 60</option>
+            <option>Conducción de eventos</option>
+            <option>Moderación de eventos</option>
+            <option>Asesoramiento personalizado</option>
+            <option>Curso Tu primer agente de IA</option>
+            <option>Otro</option>
+          </select>
+        </label>
+        <label>Mensaje<textarea name="mensaje" required></textarea></label>
+        <div><button class="btn" type="submit">Enviar mensaje</button></div>
+        <p class="form-ok" id="ok">Demo: el formulario todavía no envía mensajes.</p>
+      </form>
+
+      <ul class="channels">
+        <li><a href="https://wa.me/59899123694" target="_blank" rel="noopener">WhatsApp <em>099 123 694</em></a></li>
+        <li><a href="mailto:contacto@juampademarco.com">Correo <em>contacto@juampademarco.com</em></a></li>
+        <li><a href="https://www.instagram.com/juampa.demarco/" target="_blank" rel="noopener">Instagram <em>@juampa.demarco</em></a></li>
+        <li><a href="https://www.linkedin.com/in/juan-pablo-de-marco-3197bb23/" target="_blank" rel="noopener">LinkedIn <em>Juan Pablo De Marco</em></a></li>
+        <li><span>YouTube <em>canal pendiente</em></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 Juan Pablo De Marco</span>
+    <span>Periodista tecnológico · Uruguay</span>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(b){const m=document.getElementById('menu');const o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)}
+document.querySelectorAll('.menu a').forEach(a=>a.addEventListener('click',()=>document.getElementById('menu').classList.remove('open')));
+document.querySelectorAll('[data-servicio]').forEach(a=>a.addEventListener('click',()=>{document.getElementById('servicio').value=a.dataset.servicio}));
+function enviar(e){e.preventDefault();document.getElementById('ok').style.display='block';return false}
+</script>
+</body>
+</html>
