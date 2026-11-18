@@ -166,15 +166,26 @@ blockquote.b{background:var(--accent);color:#fff;border:0}
 blockquote.b footer,blockquote.b footer b{color:rgba(255,255,255,.85)}
 
 /* curso */
-.course-band{background:var(--soft)}
-.course{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:center}
-.course .ph{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:1/1}
-.course .ph img{width:100%;height:100%;object-fit:cover;object-position:center 40%;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
-.course .ph:hover img{transform:scale(1.05)}
-.course .badge{position:absolute;left:18px;bottom:18px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-radius:999px;padding:9px 16px;font-size:.82rem;font-weight:600;display:flex;align-items:center;gap:8px}
+.course-band{position:relative;overflow:hidden;color:#fff;padding:130px 0;background:radial-gradient(900px 500px at 85% 15%,#4f7bff 0,transparent 60%),radial-gradient(700px 500px at 0% 100%,#0f2a8a 0,transparent 60%),var(--accent)}
+.course-band::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse at 70% 40%,#000 0,transparent 70%);mask-image:radial-gradient(ellipse at 70% 40%,#000 0,transparent 70%)}
+.course{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center}
+.course .eyebrow{color:#fff;display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:7px 14px;border-radius:999px;letter-spacing:.1em}
+.course .eyebrow i{width:8px;height:8px;border-radius:50%;background:#fff;box-shadow:0 0 0 0 rgba(255,255,255,.7);animation:pulse 1.8s infinite}
+.course h2{font-size:clamp(2.8rem,6.4vw,5.4rem);line-height:.95;margin:18px 0 22px}
+.course .lead{color:rgba(255,255,255,.85);font-size:1.2rem}
+.course .ph{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 40px 80px -30px rgba(5,12,40,.7);transform:rotate(2deg);transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.course .ph:hover{transform:rotate(0) scale(1.02)}
+.course .ph img{width:100%;height:100%;object-fit:cover;object-position:center 40%}
+.course .badge{position:absolute;left:18px;bottom:18px;background:#fff;color:var(--ink);border-radius:999px;padding:10px 16px;font-size:.85rem;font-weight:600;display:flex;align-items:center;gap:8px}
 .course .badge i{width:8px;height:8px;border-radius:50%;background:var(--accent)}
-.course .stats{margin:34px 0 36px}
-.course .actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.course .stats{margin:38px 0 40px}
+.course .stat{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.22);backdrop-filter:blur(6px)}
+.course .stat::before{background:#fff}
+.course .stat b{color:#fff}
+.course .stat span{color:rgba(255,255,255,.85)}
+.course .stat:hover{box-shadow:0 20px 36px -22px rgba(0,0,0,.5)}
+.course .actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.course .btn.light{padding:17px 30px;font-size:1.02rem}
 
 /* contacto */
 .contact{display:grid;grid-template-columns:1fr 1fr;gap:64px}
@@ -203,7 +214,8 @@ footer.site .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:
   .tiles{grid-template-columns:repeat(2,1fr)}
   .tile{min-height:380px}
   .about,.contact,.course{grid-template-columns:1fr;gap:44px}
-  .course .ph{aspect-ratio:4/3}
+  .course .ph{aspect-ratio:4/3;transform:none}
+  .course-band{padding:90px 0}
   .about .ph{aspect-ratio:4/3;order:-1}
   .quotes{grid-template-columns:1fr}
 }
@@ -408,9 +420,8 @@ footer.site .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:
 <!-- CURSO -->
 <section id="curso" class="course-band">
   <div class="wrap course">
-    <div class="ph rv"><img src="img/Cursos-IA.jpg" alt="Clase del curso Tu primer agente de IA en una laptop" loading="lazy"><span class="badge"><i></i>Curso online · a tu ritmo</span></div>
     <div>
-      <p class="eyebrow rv">Curso online</p>
+      <p class="eyebrow rv"><i></i>Curso online</p>
       <h2 class="rv d1">Tu primer agente de IA</h2>
       <p class="lead rv d2">De básico a avanzado, sin saber programar. No es solo un curso grabado: te acompaño durante tres meses para que lo apliques en tu trabajo y en tu día a día.</p>
       <div class="stats rv d3">
@@ -418,8 +429,9 @@ footer.site .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:
         <div class="stat"><b><i class="c" data-count="3">0</i></b><span>meses de acompañamiento</span></div>
         <div class="stat"><b>∞</b><span>consultas por WhatsApp</span></div>
       </div>
-      <div class="actions rv d3"><a class="btn" href="#" title="Link de contratación pendiente">Quiero el curso <span class="arr">→</span></a><span class="pend">link pendiente</span></div>
+      <div class="actions rv d3"><a class="btn light" href="#" title="Link de contratación pendiente">Quiero el curso <span class="arr">→</span></a><span class="pend">link pendiente</span></div>
     </div>
+    <div class="ph rv d2"><img src="img/Cursos-IA.jpg" alt="Clase del curso Tu primer agente de IA en una laptop" loading="lazy"><span class="badge"><i></i>A tu ritmo, desde donde quieras</span></div>
   </div>
 </section>
 
