@@ -166,19 +166,15 @@ blockquote.b{background:var(--accent);color:#fff;border:0}
 blockquote.b footer,blockquote.b footer b{color:rgba(255,255,255,.85)}
 
 /* curso */
-.course{position:relative;overflow:hidden;background:var(--night);color:#fff;border-radius:28px;padding:72px 64px 150px;margin:0 24px}
-.course .eyebrow{color:#9fb6ff}
-.course h2{max-width:14ch}
-.course .lead{color:rgba(255,255,255,.7)}
-.chips{display:flex;gap:10px;flex-wrap:wrap;margin:28px 0 34px;list-style:none}
-.chips li{border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:8px 16px;font-size:.88rem;color:rgba(255,255,255,.88)}
-.course>*{position:relative;z-index:2}
-.waves{position:absolute!important;left:0;right:0;bottom:0;height:200px;z-index:1!important;pointer-events:none}
-.waves svg{position:absolute;bottom:0;left:0;width:200%;height:100%}
-.waves .w1{animation:wv 12s linear infinite}
-.waves .w2{animation:wv 16s linear infinite reverse}
-.waves .w3{animation:wv 22s linear infinite}
-@keyframes wv{to{transform:translateX(-50%)}}
+.course-band{background:var(--soft)}
+.course{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:center}
+.course .ph{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:1/1}
+.course .ph img{width:100%;height:100%;object-fit:cover;object-position:center 40%;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.course .ph:hover img{transform:scale(1.05)}
+.course .badge{position:absolute;left:18px;bottom:18px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-radius:999px;padding:9px 16px;font-size:.82rem;font-weight:600;display:flex;align-items:center;gap:8px}
+.course .badge i{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.course .stats{margin:34px 0 36px}
+.course .actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 
 /* contacto */
 .contact{display:grid;grid-template-columns:1fr 1fr;gap:64px}
@@ -206,7 +202,8 @@ footer.site .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:
 @media (max-width:1000px){
   .tiles{grid-template-columns:repeat(2,1fr)}
   .tile{min-height:380px}
-  .about,.contact{grid-template-columns:1fr;gap:44px}
+  .about,.contact,.course{grid-template-columns:1fr;gap:44px}
+  .course .ph{aspect-ratio:4/3}
   .about .ph{aspect-ratio:4/3;order:-1}
   .quotes{grid-template-columns:1fr}
 }
@@ -229,10 +226,13 @@ footer.site .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:
   .stat{padding:20px 12px 16px}
   .stat b{font-size:2rem}
   .stat span{font-size:.8rem}
+  .course .stats{grid-template-columns:1fr}
+  .course .stat{display:flex;align-items:center;gap:16px;padding:16px 18px}
+  .course .stat b{min-width:76px}
+  .course .stat span{margin:0;font-size:.92rem}
   .card{flex-basis:82%}
   .arrows{display:none}
   .row2{grid-template-columns:1fr}
-  .course{padding:52px 26px 140px;margin:0 12px;border-radius:22px}
   blockquote{padding:26px}
   blockquote p{font-size:1.12rem}
 }
@@ -406,23 +406,25 @@ footer.site .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:
 </section>
 
 <!-- CURSO -->
-<section id="curso" style="padding-top:20px">
-  <div class="course rv">
-    <p class="eyebrow">Curso online</p>
-    <h2>Tu primer agente de IA</h2>
-    <p class="lead">De básico a avanzado, sin saber programar y con tres meses de acompañamiento personalizado.</p>
-    <ul class="chips">
-      <li>+3 horas de clases en video</li>
-      <li>3 meses de acompañamiento</li>
-      <li>Consultas ilimitadas por WhatsApp</li>
-    </ul>
-    <a class="btn light" href="#" title="Link de contratación pendiente">Quiero el curso <span class="arr">→</span></a> <span class="pend" style="margin-left:8px">link pendiente</span>
-    <div class="waves" aria-hidden="true"><svg class="w1" viewBox="0 0 2400 400" preserveAspectRatio="none"><path d="M0 170 C300 100 300 100 600 170 S900 240 1200 170 S1500 100 1800 170 S2100 240 2400 170 V400 H0 Z" fill="#1f44c4" fill-opacity=".35"/></svg><svg class="w2" viewBox="0 0 2400 400" preserveAspectRatio="none"><path d="M0 220 C300 165 300 165 600 220 S900 275 1200 220 S1500 165 1800 220 S2100 275 2400 220 V400 H0 Z" fill="#2a4bd0" fill-opacity=".35"/></svg><svg class="w3" viewBox="0 0 2400 400" preserveAspectRatio="none"><path d="M0 280 C300 240 300 240 600 280 S900 320 1200 280 S1500 240 1800 280 S2100 320 2400 280 V400 H0 Z" fill="#16255f" fill-opacity=".8"/></svg></div>
+<section id="curso" class="course-band">
+  <div class="wrap course">
+    <div class="ph rv"><img src="img/Cursos-IA.jpg" alt="Clase del curso Tu primer agente de IA en una laptop" loading="lazy"><span class="badge"><i></i>Curso online · a tu ritmo</span></div>
+    <div>
+      <p class="eyebrow rv">Curso online</p>
+      <h2 class="rv d1">Tu primer agente de IA</h2>
+      <p class="lead rv d2">De básico a avanzado, sin saber programar. No es solo un curso grabado: te acompaño durante tres meses para que lo apliques en tu trabajo y en tu día a día.</p>
+      <div class="stats rv d3">
+        <div class="stat"><b>+<i class="c" data-count="3">0</i> h</b><span>de clases en video</span></div>
+        <div class="stat"><b><i class="c" data-count="3">0</i></b><span>meses de acompañamiento</span></div>
+        <div class="stat"><b>∞</b><span>consultas por WhatsApp</span></div>
+      </div>
+      <div class="actions rv d3"><a class="btn" href="#" title="Link de contratación pendiente">Quiero el curso <span class="arr">→</span></a><span class="pend">link pendiente</span></div>
+    </div>
   </div>
 </section>
 
 <!-- CONTACTO -->
-<section id="contacto" style="padding-top:40px">
+<section id="contacto">
   <div class="wrap contact">
     <div>
       <p class="eyebrow rv">Contacto</p>
