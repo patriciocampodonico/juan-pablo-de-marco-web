@@ -63,6 +63,7 @@ header.solid .brand .mark{color:#100e4f}
 .slide.on{opacity:1}
 .slide img,.slide video{width:100%;height:100%;object-fit:cover}
 .slide.on img{animation:kb 9s ease-out forwards}
+.slide.flip{transform:scaleX(-1)}
 .slide.vid{background:#000}
 .slide.vid>*{position:absolute;right:0;top:0;width:62%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 35%);mask-image:linear-gradient(90deg,transparent 0,#000 35%)}
 @media (max-width:760px){.slide.vid>*{width:100%;-webkit-mask-image:none;mask-image:none}}
@@ -284,7 +285,7 @@ footer.site .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:
     <div class="slide on" data-cap="<b>Conferencias</b> · Charlas sobre inteligencia artificial"><img src="img/Foto-JP-03-scaled.jpg" alt="" style="object-position:80% center"></div>
     <div class="slide" data-cap="<b>Moderación</b> · Paneles y entrevistas en vivo"><img src="img/Moderador.png" alt="" style="object-position:72% center"></div>
     <div class="slide vid" data-video="video/radar-ia-2.mp4" data-cap="<b>Radar IA</b> · Streaming de El Observador, martes 20 h"><img src="video/radar-ia-2.jpg" alt="" style="object-position:62% center"></div>
-    <div class="slide" data-cap="<b>Contenido</b> · Probando la tecnología que viene"><img src="img/Foto-JP-02.jpeg" alt="" style="object-position:35% center"></div>
+    <div class="slide flip" data-cap="<b>Contenido</b> · Probando la tecnología que viene"><img src="img/Foto-JP-02.jpeg" alt="" style="object-position:35% center"></div>
     <!-- Pendientes de video (los pasa Juampa):
     <div class="slide vid" data-video="video/bilinkis.mp4" data-cap="<b>Entrevista</b> · Con Santiago Bilinkis"><img src="img/..." alt=""></div>
     -->
