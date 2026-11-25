@@ -281,26 +281,22 @@ footer.site .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:
 .tip p.sub{color:rgba(255,255,255,.7);font-size:1.1rem;max-width:46ch}
 .tip .actions{display:flex;gap:12px;flex-wrap:wrap;flex:none}
 @media (max-width:760px){.tip{padding:56px 0}.tip .wrap{flex-direction:column;align-items:flex-start;gap:26px}}
-.tl-head{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:end}
-.tl-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
-.tl-step{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;position:relative;overflow:hidden}
-.tl-step::before{content:"";position:absolute;left:0;top:0;right:0;height:4px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
-.tl-step .k{font:700 .8rem var(--head);letter-spacing:.14em;color:var(--accent)}
-.tl-step h3{font-size:clamp(1.7rem,2.6vw,2.2rem);margin:10px 0 8px;letter-spacing:-.02em}
-.tl-step p{color:var(--muted);font-size:.98rem}
-.tl-foot{display:grid;grid-template-columns:1fr 1.15fr;gap:16px;margin-top:16px}
-.tl-with{background:var(--soft);border-radius:var(--r);padding:28px 26px;display:flex;flex-direction:column;justify-content:space-between;gap:22px}
-.tl-with h4,.tl-60 h4{font:700 .76rem var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
-.tl-with p{font-size:1.02rem;line-height:1.6}
-.tl-with p b{font-weight:600}
-.tl-60{display:grid;grid-template-columns:1fr 1fr;background:var(--night);color:#fff;border-radius:var(--r);overflow:hidden}
-.tl-60 img{width:100%;height:100%;object-fit:cover;min-height:240px}
-.tl-60 .tx{padding:28px 26px;display:flex;flex-direction:column;justify-content:center}
-.tl-60 h4{color:#9fb6ff}
-.tl-60 .big{font:700 clamp(1.5rem,2.4vw,1.9rem)/1.15 var(--head);margin-bottom:10px;letter-spacing:-.01em}
-.tl-60 p{color:rgba(255,255,255,.75);font-size:.95rem}
-@media (max-width:1000px){.tl-head,.tl-foot{grid-template-columns:1fr}}
-@media (max-width:760px){.tl-steps{grid-template-columns:1fr}.tl-60{grid-template-columns:1fr}.tl-60 img{aspect-ratio:4/3;min-height:0}}
+.tl{display:grid;grid-template-columns:1fr 1.25fr;gap:56px;align-items:center}
+.tl-steps{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.tl-steps li{display:flex;align-items:baseline;gap:22px;padding:22px 0;border-bottom:1px solid var(--line)}
+.tl-steps .k{font:700 .8rem var(--head);letter-spacing:.14em;color:var(--accent);width:28px;flex:none}
+.tl-steps b{font:700 clamp(2rem,4vw,3.2rem)/1 var(--head);letter-spacing:-.03em}
+.tl-steps span.d{color:var(--muted);font-size:.95rem;margin-left:auto;text-align:right;max-width:22ch}
+.tl-with{margin-top:26px;color:var(--muted);font-size:.95rem}
+.tl-with b{color:var(--ink);font-weight:600}
+.s60{background:var(--soft);padding:0;overflow:hidden}
+.s60-in{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;min-height:440px}
+.s60 img{width:100%;height:100%;object-fit:cover;max-height:560px}
+.s60 .tx{padding:70px 8% 70px 64px;display:flex;flex-direction:column;justify-content:center}
+.s60 .pill{align-self:flex-start;font:700 .8rem var(--head);letter-spacing:.08em;background:var(--accent);color:#fff;padding:7px 14px;border-radius:999px;margin-bottom:20px}
+.s60 h2{margin-bottom:.35em}
+@media (max-width:1000px){.tl{grid-template-columns:1fr;gap:30px}}
+@media (max-width:760px){.s60-in{grid-template-columns:1fr}.s60 img{aspect-ratio:4/3}.s60 .tx{padding:40px 24px 56px}.tl-steps span.d{display:none}}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   .rv{opacity:1;transform:none}
@@ -430,29 +426,31 @@ footer.site .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:
 </section>
 
 <!-- CHARLAS Y TALLERES -->
-<section id="talleres" style="padding-bottom:30px">
-  <div class="wrap">
-    <div class="tl-head">
-      <div>
-        <p class="eyebrow rv">Charlas y talleres</p>
-        <h2 class="rv d1" style="margin-bottom:0">Charlas y talleres para empresas.</h2>
-      </div>
-      <p class="lead rv d2">Talleres prácticos sobre Claude, ChatGPT y Gemini, armados a medida de cada equipo para usarlos en el trabajo desde el día siguiente.</p>
+<section id="talleres">
+  <div class="wrap tl">
+    <div>
+      <p class="eyebrow rv">Empresas</p>
+      <h2 class="rv d1">Charlas y talleres para empresas.</h2>
+      <p class="lead rv d2">Talleres prácticos de IA a medida de cada equipo, para usarla en el trabajo desde el día siguiente.</p>
+      <p class="tl-with rv d2">Trabajé con <b>Salus, Berkes, Pinturas Renner, DAVINCI y Sabre</b>.</p>
+      <p class="rv d3" style="margin-top:26px"><a class="btn" href="#contacto" data-servicio="Formación en IA">Pedí una propuesta <span class="arr">→</span></a></p>
     </div>
-    <div class="tl-steps">
-      <div class="tl-step rv"><span class="k">PASO 01</span><h3>Hablar</h3><p>Aprender a conversar con la IA y pedirle bien las cosas.</p></div>
-      <div class="tl-step rv d1"><span class="k">PASO 02</span><h3>Personalizar</h3><p>Adaptarla a la empresa, al área y al estilo de cada persona.</p></div>
-      <div class="tl-step rv d2"><span class="k">PASO 03</span><h3>Delegar</h3><p>Pasarle tareas reales y liberar tiempo.</p></div>
-    </div>
-    <div class="tl-foot">
-      <div class="tl-with rv">
-        <div><h4>Trabajé con</h4><p><b>Salus, Berkes, Pinturas Renner, DAVINCI y Sabre.</b> Charlas en Campus Party, Blockchain Summit, AJE y la Embajada de EE.UU.</p></div>
-        <div><a class="btn" href="#contacto" data-servicio="Formación en IA">Pedí una propuesta <span class="arr">→</span></a></div>
-      </div>
-      <div class="tl-60 rv d1">
-        <img src="img/Curso-60.jpg" alt="Juan Pablo De Marco con un grupo de alumnos mayores de 60 en un curso de IA" loading="lazy">
-        <div class="tx"><h4>También para +60</h4><p class="big">Perderle el miedo a la IA.</p><p>Cursos para personas mayores en UCU Senior y en el Crandon, con el mismo enfoque simple y cercano.</p></div>
-      </div>
+    <ol class="tl-steps rv d1">
+      <li><span class="k">01</span><b>Hablar</b><span class="d">pedirle bien las cosas a la IA</span></li>
+      <li><span class="k">02</span><b>Personalizar</b><span class="d">adaptarla a cada empresa y persona</span></li>
+      <li><span class="k">03</span><b>Delegar</b><span class="d">pasarle tareas reales y ganar tiempo</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- CURSOS +60 -->
+<section class="s60" id="mas-60">
+  <div class="s60-in">
+    <img src="img/Curso-60.jpg" alt="Juan Pablo De Marco con un grupo de alumnos mayores de 60 en un curso de IA" loading="lazy">
+    <div class="tx">
+      <span class="pill rv">Cursos +60</span>
+      <h2 class="rv d1">Perderle el miedo<br>a la IA.</h2>
+      <p class="lead rv d2">Clases para personas mayores en UCU Senior y en el Crandon.</p>
     </div>
   </div>
 </section>
