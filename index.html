@@ -134,7 +134,7 @@ header.solid .brand b{color:var(--accent)}
 .arrows{display:flex;gap:10px}
 .arrows button{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--line);background:#fff;font-size:1.2rem;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
 .arrows button:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
-.rail{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:40px 24px 10px;margin:0 auto;max-width:var(--wrap);scrollbar-width:none;cursor:grab;scroll-padding-inline:24px}
+.rail{display:flex;gap:18px;overflow-x:auto;overflow-y:hidden;overscroll-behavior-y:auto;scroll-snap-type:x mandatory;padding:40px 24px 10px;margin:0 auto;max-width:var(--wrap);scrollbar-width:none;cursor:grab;scroll-padding-inline:24px}
 .rail::-webkit-scrollbar{display:none}
 .card{flex:0 0 340px;scroll-snap-align:start;background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:transform .35s,box-shadow .35s}
 .card:hover{transform:translateY(-6px);box-shadow:0 22px 40px -24px rgba(21,24,29,.45)}
