@@ -271,6 +271,16 @@ footer.site .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:
   blockquote{padding:26px}
   blockquote p{font-size:1.12rem}
 }
+.tip{background:var(--night);color:#fff;padding:72px 0;position:relative;overflow:hidden}
+.tip::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 0% 50%,rgba(79,123,255,.22),transparent 70%);pointer-events:none}
+.tip .wrap{position:relative;display:flex;align-items:center;justify-content:space-between;gap:40px}
+.tip .eyebrow{color:#9fb6ff;display:flex;align-items:center;gap:10px}
+.tip .eyebrow i{width:8px;height:8px;border-radius:50%;background:#ff3b3b;box-shadow:0 0 0 0 rgba(255,59,59,.6);animation:live 1.8s infinite}
+@keyframes live{70%{box-shadow:0 0 0 9px rgba(255,59,59,0)}100%{box-shadow:0 0 0 0 rgba(255,59,59,0)}}
+.tip h2{font-size:clamp(2.2rem,5vw,4rem);margin-bottom:.25em}
+.tip p.sub{color:rgba(255,255,255,.7);font-size:1.1rem;max-width:46ch}
+.tip .actions{display:flex;gap:12px;flex-wrap:wrap;flex:none}
+@media (max-width:760px){.tip{padding:56px 0}.tip .wrap{flex-direction:column;align-items:flex-start;gap:26px}}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   .rv{opacity:1;transform:none}
@@ -465,6 +475,21 @@ footer.site .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:
   </div>
 </section>
 
+<!-- NOTICIA -->
+<section class="tip" aria-labelledby="tip-t">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow rv"><i></i>Noticias</p>
+      <h2 id="tip-t" class="rv d1">¿Tenés una noticia?</h2>
+      <p class="sub rv d2">Si sabés de algo que está pasando en tecnología, startups o inteligencia artificial, escribime.</p>
+    </div>
+    <div class="actions rv d3">
+      <a class="btn light" href="https://wa.me/59899123694?text=Hola%20Juan%20Pablo%2C%20tengo%20una%20noticia%20para%20contarte" target="_blank" rel="noopener">Por WhatsApp <span class="arr">→</span></a>
+      <a class="btn line" href="mailto:contacto@juampademarco.com?subject=Tengo%20una%20noticia">Por correo</a>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACTO -->
 <section id="contacto">
   <div class="wrap contact">
@@ -492,6 +517,7 @@ footer.site .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:
           <option>Conducción o moderación</option>
           <option>Formación en IA</option>
           <option>Curso Tu primer agente de IA</option>
+          <option>Tengo una noticia para contar</option>
           <option>Otro</option>
         </select>
       </label>
