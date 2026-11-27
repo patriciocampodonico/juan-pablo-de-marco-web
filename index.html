@@ -178,14 +178,16 @@ header.solid .brand .mark{color:#100e4f}
 
 /* testimonios */
 .quotes{display:grid;grid-template-columns:1.4fr 1fr;gap:18px;margin-top:10px}
-.qmarq{margin-top:10px;overflow:hidden;width:100vw;margin-left:calc(50% - 50vw)}
-.qtrack{display:flex;gap:18px;width:max-content;animation:qmove 70s linear infinite}
-.qmarq:hover .qtrack{animation-play-state:paused}
-.qtrack blockquote{width:440px;flex:none;display:flex;flex-direction:column}
-.qtrack blockquote footer{margin-top:auto;padding-top:22px}
-@keyframes qmove{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 9px))}}
-@media (max-width:760px){.qtrack blockquote{width:80vw}.qtrack{animation-duration:55s}}
-@media (prefers-reduced-motion:reduce){.qtrack{animation:none}.qmarq{overflow-x:auto}}
+.qcar{position:relative;margin-top:14px}
+.qcar blockquote{position:absolute;top:0;left:50%;width:min(480px,80vw);display:flex;flex-direction:column;transform:translateX(-50%) scale(.86);opacity:.5;z-index:1;cursor:pointer;transition:transform .9s cubic-bezier(.2,.7,.2,1),opacity .9s,box-shadow .9s}
+.qcar blockquote footer{margin-top:auto;padding-top:22px}
+.qcar blockquote.c{transform:translateX(-50%) scale(1);opacity:1;z-index:3;cursor:default;box-shadow:0 30px 60px -30px rgba(11,14,20,.35)}
+.qcar blockquote.l{transform:translateX(-147%) scale(.86)}
+.qcar blockquote.r{transform:translateX(47%) scale(.86)}
+.qdots{display:flex;justify-content:center;gap:8px;margin-top:26px}
+.qdots button{width:8px;height:8px;border-radius:99px;border:0;padding:0;background:rgba(21,24,29,.2);cursor:pointer;transition:width .4s,background .4s}
+.qdots button.on{width:26px;background:var(--accent)}
+@media (max-width:760px){.qcar blockquote.l{transform:translateX(-144%) scale(.86)}.qcar blockquote.r{transform:translateX(44%) scale(.86)}}
 blockquote{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:36px}
 blockquote p{font-family:var(--head);font-weight:600;font-size:1.3rem;line-height:1.4;letter-spacing:-.015em}
 blockquote footer{margin-top:22px;font-size:.9rem;color:var(--muted)}
@@ -508,18 +510,16 @@ footer.site .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:
 </section>
 
 <!-- TESTIMONIOS -->
-<section class="testi" style="background:var(--soft)">
+<section class="testi" style="background:var(--soft);overflow:hidden">
   <div class="wrap">
     <p class="eyebrow rv">Los que confiaron</p>
     <!-- Testimonios: los .empty son lugares vacíos para completar -->
-    <div class="qmarq rv" id="qmarq"><div class="qtrack">
+    <div class="qcar rv" id="qcar">
       <blockquote><div class="qh" aria-hidden="true"><span class="qi"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 18h6v-6H6.5c0-2.2 1.3-3.6 3.5-4V5C6.4 5.5 4 8.1 4 12v6zm10 0h6v-6h-3.5c0-2.2 1.3-3.6 3.5-4V5c-3.6.5-6 3.1-6 7v6z"/></svg></span><span class="st">★★★★★</span></div><p>“La participación de Juan Pablo […] fue del alto nivel que todos esperábamos. La sala repleta y los comentarios luego confirman su gran convocatoria y su condición de crack.”</p><footer><b>Marcelo Montoro</b> · Coorganizador de la Blockchain Summit Global</footer></blockquote>
       <blockquote class="b"><div class="qh" aria-hidden="true"><span class="qi"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 18h6v-6H6.5c0-2.2 1.3-3.6 3.5-4V5C6.4 5.5 4 8.1 4 12v6zm10 0h6v-6h-3.5c0-2.2 1.3-3.6 3.5-4V5c-3.6.5-6 3.1-6 7v6z"/></svg></span><span class="st">★★★★★</span></div><p>“Se disfruta mucho la forma en que compartes tus conocimientos.”</p><footer><b>Carol P.</b> · Docente universitaria</footer></blockquote>
       <blockquote class="empty"><div class="qh" aria-hidden="true"><span class="qi"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 18h6v-6H6.5c0-2.2 1.3-3.6 3.5-4V5C6.4 5.5 4 8.1 4 12v6zm10 0h6v-6h-3.5c0-2.2 1.3-3.6 3.5-4V5c-3.6.5-6 3.1-6 7v6z"/></svg></span><span class="st">★★★★★</span></div><p>“Testimonio por sumar.”</p><footer><b>Nombre</b> · Cargo</footer></blockquote>
-      <blockquote class="b empty"><div class="qh" aria-hidden="true"><span class="qi"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 18h6v-6H6.5c0-2.2 1.3-3.6 3.5-4V5C6.4 5.5 4 8.1 4 12v6zm10 0h6v-6h-3.5c0-2.2 1.3-3.6 3.5-4V5c-3.6.5-6 3.1-6 7v6z"/></svg></span><span class="st">★★★★★</span></div><p>“Testimonio por sumar.”</p><footer><b>Nombre</b> · Cargo</footer></blockquote>
-      <blockquote class="empty"><div class="qh" aria-hidden="true"><span class="qi"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 18h6v-6H6.5c0-2.2 1.3-3.6 3.5-4V5C6.4 5.5 4 8.1 4 12v6zm10 0h6v-6h-3.5c0-2.2 1.3-3.6 3.5-4V5c-3.6.5-6 3.1-6 7v6z"/></svg></span><span class="st">★★★★★</span></div><p>“Testimonio por sumar.”</p><footer><b>Nombre</b> · Cargo</footer></blockquote>
-      <blockquote class="b empty"><div class="qh" aria-hidden="true"><span class="qi"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 18h6v-6H6.5c0-2.2 1.3-3.6 3.5-4V5C6.4 5.5 4 8.1 4 12v6zm10 0h6v-6h-3.5c0-2.2 1.3-3.6 3.5-4V5c-3.6.5-6 3.1-6 7v6z"/></svg></span><span class="st">★★★★★</span></div><p>“Testimonio por sumar.”</p><footer><b>Nombre</b> · Cargo</footer></blockquote>
-    </div></div>
+    </div>
+    <div class="qdots" id="qdots" role="tablist" aria-label="Testimonios"></div>
   </div>
 </section>
 
@@ -664,8 +664,16 @@ rl.addEventListener('click',e=>{if(rl.dataset.drag){e.preventDefault();delete rl
 document.querySelectorAll('[data-servicio]').forEach(a=>a.addEventListener('click',()=>{document.getElementById('servicio').value=a.dataset.servicio}));
 function enviar(e){e.preventDefault();document.getElementById('ok').style.display='block';return false}
 
-// testimonios: duplicar para loop continuo
-(()=>{const t=document.querySelector('#qmarq .qtrack');if(!t)return;[...t.children].forEach(c=>{const k=c.cloneNode(true);k.setAttribute('aria-hidden','true');t.appendChild(k)})})();
+// testimonios: carrusel de 3, la del medio más grande, rota sola
+(()=>{const box=document.getElementById('qcar'),dw=document.getElementById('qdots');if(!box)return;
+const q=[...box.querySelectorAll('blockquote')],n=q.length;let i=0,t;
+q.forEach((_,k)=>{const b=document.createElement('button');b.setAttribute('aria-label','Testimonio '+(k+1));b.onclick=()=>{go(k);restart()};dw.appendChild(b)});
+const fit=()=>{q.forEach(e=>e.style.minHeight='');const h=Math.max(...q.map(e=>e.offsetHeight));q.forEach(e=>e.style.minHeight=h+'px');box.style.height=h+'px'};
+function go(k){i=(k+n)%n;q.forEach((e,j)=>{const d=(j-i+n)%n;e.classList.toggle('c',d===0);e.classList.toggle('r',d===1);e.classList.toggle('l',d===n-1);e.setAttribute('aria-hidden',d!==0)});[...dw.children].forEach((b,j)=>b.classList.toggle('on',j===i))}
+q.forEach((e,j)=>e.addEventListener('click',()=>{if(j!==i){go(j);restart()}}));
+const restart=()=>{clearInterval(t);if(!reduce)t=setInterval(()=>go(i+1),5500)};
+box.addEventListener('mouseenter',()=>clearInterval(t));box.addEventListener('mouseleave',restart);
+fit();addEventListener('resize',fit);document.fonts&&document.fonts.ready.then(fit);go(0);restart()})();
 </script>
 </body>
 </html>
