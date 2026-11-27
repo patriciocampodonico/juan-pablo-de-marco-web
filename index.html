@@ -83,8 +83,7 @@ header.solid .brand .mark{color:#100e4f}
 .igr .who i{width:18px;height:18px;border-radius:50%;background:linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7);box-shadow:0 0 0 1.5px #fff}
 .igr .who b{border:1px solid rgba(255,255,255,.8);border-radius:5px;padding:1px 6px;font-weight:600}
 .igr .bar{left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.3);filter:none}
-.igr .bar::after{content:"";position:absolute;inset:0;background:#fff;transform-origin:left;animation:reelbar 9s linear infinite}
-@keyframes reelbar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.igr .bar::after{content:"";position:absolute;inset:0;background:#fff;transform-origin:left;transform:scaleX(.4)}
 @media (max-width:760px){.igr{width:auto;height:100%}.igr .side{top:15%;gap:7px}.igr .who{display:none}}
 @keyframes kb{from{transform:scale(1.12)}to{transform:scale(1)}}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,10,16,.88) 0%,rgba(8,10,16,.55) 45%,rgba(8,10,16,.15) 100%),linear-gradient(0deg,rgba(8,10,16,.85) 0%,rgba(8,10,16,0) 45%);pointer-events:none}
