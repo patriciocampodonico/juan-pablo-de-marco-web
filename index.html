@@ -155,7 +155,7 @@ header.solid .brand .mark{color:#100e4f}
 .arrows{display:flex;gap:10px}
 .arrows button{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--line);background:#fff;font-size:1.2rem;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
 .arrows button:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
-.rail{display:flex;gap:18px;overflow-x:auto;overflow-y:hidden;overscroll-behavior-y:auto;scroll-snap-type:x mandatory;padding:40px 24px 10px;margin:0 auto;max-width:var(--wrap);scrollbar-width:none;cursor:grab;scroll-padding-inline:24px}
+.rail{display:flex;gap:18px;overflow-x:auto;overflow-y:hidden;overscroll-behavior-y:auto;scroll-snap-type:x mandatory;padding:40px max(24px,calc((100vw - var(--wrap))/2 + 24px)) 10px;margin:0;scrollbar-width:none;cursor:grab;scroll-padding-inline:max(24px,calc((100vw - var(--wrap))/2 + 24px))}
 .rail::-webkit-scrollbar{display:none}
 .card{flex:0 0 340px;scroll-snap-align:start;background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:transform .35s,box-shadow .35s}
 .card:hover{transform:translateY(-6px);box-shadow:0 22px 40px -24px rgba(21,24,29,.45)}
@@ -241,7 +241,11 @@ textarea{min-height:120px;resize:vertical}
 footer.site{padding:34px 0;font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);margin-top:30px}
 .fbrand{display:inline-flex;align-items:center;gap:12px}
 .fbrand img{height:18px;width:auto}
-footer.site .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer.site .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.fsoc{display:flex;gap:10px}
+.fsoc a{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--ink);transition:background .2s,color .2s,border-color .2s}
+.fsoc a:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.fsoc svg{width:17px;height:17px}
 
 /* aparición al hacer scroll */
 .rv{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
@@ -438,7 +442,7 @@ footer.site .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:
       <a class="tile rv d3" href="#talleres" data-servicio="Formación en IA">
         <img src="img/Capacitaciones.jpg" alt="" style="object-position:center 30%">
         <div class="in"><span class="n">04</span><h3>Formación en IA</h3>
-          <div class="more"><div><p>Talleres para empresas y para mayores de 60, y asesorías 1 a 1. Método: hablar, personalizar y delegar.</p><span class="go">Ver más ↓</span></div></div></div>
+          <div class="more"><div><p>Talleres para empresas y para mayores de 60, y asesorías 1 a 1.</p><span class="go">Ver más ↓</span></div></div></div>
       </a>
     </div>
   </div>
@@ -600,8 +604,12 @@ footer.site .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:
 
 <footer class="site">
   <div class="wrap">
-    <span class="fbrand"><img src="img/favicon-jdm.svg" alt="JDM" height="18">© 2026 Juan Pablo De Marco</span>
-    <span>Periodista tecnológico · Uruguay</span>
+    <span class="fbrand"><img src="img/favicon-jdm.svg" alt="JDM" height="18">© 2026 Juan Pablo De Marco · Periodista tecnológico</span>
+    <span class="fsoc">
+      <a href="https://www.instagram.com/juampa.demarco/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+      <a href="https://www.linkedin.com/in/juan-pablo-de-marco-3197bb23/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21h-4z"/></svg></a>
+      <a href="mailto:contacto@juampademarco.com" aria-label="Correo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+    </span>
   </div>
 </footer>
 
